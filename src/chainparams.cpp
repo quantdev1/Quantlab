@@ -149,7 +149,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1530742317;
+        genesis.nTime = 1536096363;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 3017405;
 
@@ -285,7 +285,7 @@ public:
 
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1530742317;
+        genesis.nTime = 1536096363;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 601665;
 
@@ -357,7 +357,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
 
 
-        genesis.nTime = 1530742317;
+        genesis.nTime = 1536096363;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 233847;
 
