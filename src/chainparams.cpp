@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("00000b98922740df00b3901f57ccd37aacffe301de658ca83c0a5f875ae9a890"));
+    (0, uint256("000002d9dc866eb7d3a277dff10dccfc41294fb57adb27a0bd5251c2a47cd4fe"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1530742317, // * UNIX timestamp of last checkpoint block
+    1536096363, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -151,35 +151,11 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1536096363;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3017405;
-
-        if(genesis.GetHash() != uint256("0x"))
-        {
-            printf("Searching for genesis block...\n");
-            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-            while(uint256(genesis.GetHash()) > hashTarget)
-            {
-                ++genesis.nNonce;
-                if (genesis.nNonce == 0)
-                {
-                    printf("NONCE WRAPPED, incrementing time");
-                    std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-                    ++genesis.nTime;
-                }
-                if (genesis.nNonce % 10000 == 0)
-                {
-                    printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str(), genesis.hashMerkleRoot.ToString().c_str());
-                }
-            }
-            printf("block.nTime = %u \n", genesis.nTime);
-            printf("block.nNonce = %u \n", genesis.nNonce);
-            printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
-            printf("block.merklehash = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-        }
+        genesis.nNonce = 3103448;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(genesis.hashMerkleRoot == uint256("0xf79c08a6cb0023b7638597967a4a54b5321cbfa44c35aa99d5db0a660e0710d7"));
-        assert(hashGenesisBlock == uint256("0x00000b98922740df00b3901f57ccd37aacffe301de658ca83c0a5f875ae9a890"));
+        assert(genesis.hashMerkleRoot == uint256("0x6c6bf8c59aec5f50bab0437a7312f67bba3355e79c52f173e070cd8dcb21f5cf"));
+        assert(hashGenesisBlock == uint256("0x000002d9dc866eb7d3a277dff10dccfc41294fb57adb27a0bd5251c2a47cd4fe"));
 
         // Zerocoin, activated never
         nZerocoinStartHeight = INT_MAX;
