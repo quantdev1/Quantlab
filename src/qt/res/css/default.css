@@ -57,7 +57,7 @@ background-color:#2f2f2f;
 }
 
 QMenu {
-background-color:#1F1F1F;
+background-color:#5B3F80;
 }
 
 QMenu::item {
@@ -262,7 +262,7 @@ QPushButton:focus {
 }
 
 QPushButton:pressed {
-background-color: #5B2882;
+background-color: #52d400;
 }
 
 /* Special handling for statusbar-icons (which are partly QPushButtons) */
@@ -506,7 +506,7 @@ min-height:10px;
 }
 
 QScrollBar::handle:vertical:pressed { /* Scroll Bar Slider - vertical */
-background:#5B2882;
+background:#52d400;
 min-height:10px;
 }
 
@@ -516,7 +516,7 @@ min-width:10px;
 }
 
 QScrollBar::handle:horizontal:pressed { /* Scroll Bar Slider - horizontal */
-background:#5B2882;
+background:#52d400;
 min-width:10px;
 }
 
@@ -585,7 +585,7 @@ border-radius: 4px;
 
 QSlider::sub-page:horizontal {
 background-color: #3d3d3d;
-border: 1px solid #5B2882;
+border: 1px solid #52d400;
 height: 10px;
 border-radius: 4px;
 }
@@ -609,7 +609,7 @@ border-radius: 9px;
 
 QSlider::handle:horizontal:hover {
 background-color: #52d400;
-border: 2px solid #5B2882;
+border: 2px solid #52d400;
 width: 16px;
 height: 16px;
 margin-top: -6px;
