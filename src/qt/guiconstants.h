@@ -23,7 +23,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 #define STYLE_INVALID "background:rgba(238, 47, 119)"
 
 /* Transaction list -- unconfirmed transaction */
-#define COLOR_UNCONFIRMED QColor(47, 238, 206) // cyan
+#define COLOR_UNCONFIRMED QColor(82, 212, 0) // green
 /* Transaction list -- negative amount */
 #define COLOR_NEGATIVE QColor(238, 47, 119) // pink
 /* Transaction list -- bare address (without label) */
