@@ -103,10 +103,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xb5;
-        pchMessageStart[1] = 0x1f;
-        pchMessageStart[2] = 0x75;
-        pchMessageStart[3] = 0xd6;
+        pchMessageStart[0] = 0xa2;
+        pchMessageStart[1] = 0xb0;
+        pchMessageStart[2] = 0x56;
+        pchMessageStart[3] = 0xc5;
         vAlertPubKey = ParseHex("047ff78a093ca911fbe3c7cd9b8b81976696d92e6ad3d987b00a4cc4841fe9689ed6902be9c6942ef77492d0531bf68cf2e53dc0ac683359f938a7a52a988ced8c");
         nDefaultPort = 23001;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Quantlab starting difficulty is 1 / 2^12
@@ -120,7 +120,7 @@ public:
         nTargetTimespan = 60 * 60; // Quantlab: 1 hr
         nTargetSpacing = 120;  // Quantlab: 2 min
         nMaturity = 10;
-        nMasternodeCollateral = 20000; // 20,000 QNT
+        nMasternodeCollateral = 25000; // 25,000 QNT
         nMasternodeCountDrift = 20;
         nMaxMoneyOut =  600000000LL * COIN;
         nSwiftTxMinFee = 0.01 * COIN;             // 1 CENT or 10000 satoshis
@@ -138,7 +138,7 @@ public:
 
 
 
-        const char* pszTimestamp = "Quantlab chain made with love in Europe,America,Asia July 5 2018";
+        const char* pszTimestamp = "Quantlab September 4 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -153,6 +153,30 @@ public:
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 3017405;
 
+        if(genesis.GetHash() != uint256("0x"))
+        {
+            printf("Searching for genesis block...\n");
+            uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+            while(uint256(genesis.GetHash()) > hashTarget)
+            {
+                ++genesis.nNonce;
+                if (genesis.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time");
+                    std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+                    ++genesis.nTime;
+                }
+                if (genesis.nNonce % 10000 == 0)
+                {
+                    printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str(), genesis.hashMerkleRoot.ToString().c_str());
+                }
+            }
+            printf("block.nTime = %u \n", genesis.nTime);
+            printf("block.nNonce = %u \n", genesis.nNonce);
+            printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+            printf("block.merklehash = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+        }
+
         hashGenesisBlock = genesis.GetHash();
         assert(genesis.hashMerkleRoot == uint256("0xf79c08a6cb0023b7638597967a4a54b5321cbfa44c35aa99d5db0a660e0710d7"));
         assert(hashGenesisBlock == uint256("0x00000b98922740df00b3901f57ccd37aacffe301de658ca83c0a5f875ae9a890"));
@@ -161,12 +185,12 @@ public:
         nZerocoinStartHeight = INT_MAX;
         nZerocoinStartTime = INT_MAX;
 
-        vSeeds.push_back(CDNSSeedData("0", "95.179.144.16"));             // Primary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("1", "140.82.54.171"));      // Secondary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("2", "80.240.21.186"));     // Third DNS Seeder
+        vSeeds.push_back(CDNSSeedData("0", "209.250.247.54"));             // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("1", "45.76.44.153"));      // Secondary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("2", "140.82.35.215"));     // Third DNS Seeder
 
         // https://en.bitcoin.it/wiki/List_of_address_prefixes
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);     // starts with B
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58);     // starts with B
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 63);     // starts with S
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 75);        // starts with X
 
@@ -181,7 +205,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x0b)(0x2a).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x0b)(0xb9).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -235,10 +259,10 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0xb2;
-        pchMessageStart[1] = 0x16;
-        pchMessageStart[2] = 0x73;
-        pchMessageStart[3] = 0xd7;
+        pchMessageStart[0] = 0x23;
+        pchMessageStart[1] = 0x6b;
+        pchMessageStart[2] = 0x0c;
+        pchMessageStart[3] = 0x1b;
         vAlertPubKey = ParseHex("047ff78a093ca911fbe3c7cd9b8b81976696d92e6ad3d987b00a4cc4841fe9689ed6902be9c6942ef77492d0531bf68cf2e53dc0ac683359f938a7a52a988ced8c");
         nDefaultPort = 23003;
         nEnforceBlockUpgradeMajority = 51;
@@ -277,7 +301,7 @@ public:
         vSeeds.push_back(CDNSSeedData("quantlab.tech", "testnet-seeds.quantlab.tech"));             // Primary DNS Seeder
         vSeeds.push_back(CDNSSeedData("gig8.com", "testnet-seeds.quantlab.gig8.com"));      // Secondary DNS Seeder
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 88); // Testnet quantlab addresses start with 'b''
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 120); // Testnet quantlab addresses start with 'b''
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 125);  // Testnet quantlab script addresses start with 's'
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 137);     // Testnet private keys start with 'x'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
@@ -319,10 +343,10 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0xb2;
-        pchMessageStart[1] = 0x1d;
-        pchMessageStart[2] = 0x71;
-        pchMessageStart[3] = 0xd9;
+        pchMessageStart[0] = 0xb7;
+        pchMessageStart[1] = 0x18;
+        pchMessageStart[2] = 0xc8;
+        pchMessageStart[3] = 0x91;
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
