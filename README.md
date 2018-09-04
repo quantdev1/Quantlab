@@ -1,12 +1,12 @@
-<h2>What is Chronos?</h2>
+<h2>What is Quantlab?</h2>
 <p>
-Chronos is mainly a manager for masternode coins giving us all the painless
+Quantlab is mainly a manager for masternode coins giving us all the painless
 and simple way to: Track, Manage,Buy,Sell and deploy a masternode.
 <p/>
 
 <p>
 A one single pit stop for you to have an easy way of managing your desired
-master node coins and not only chronos!
+master node coins and not only quantlab!
 <p/>
 
 <p>
@@ -34,7 +34,7 @@ button tap.
 <tbody><tr><td>Algo</td><td>SHA256</td></tr>
 <tr><td>Block Time</td><td>120 Seconds</td></tr>
 <tr><td>Max Coin Supply (PoS Phase)</td><td>Infinite</td></tr>
-<tr><td>Masternode Collateral</td><td>20 000 CRN</td></tr>
+<tr><td>Masternode Collateral</td><td>20 000 QNT</td></tr>
 <tr><td>Halving factor</td><td>0.9 Every 64800 Blocks</td></tr>
 </tbody></table>
 <h3>Rewards Breakdown</h3>
@@ -45,11 +45,11 @@ button tap.
 <h3>Block Schedule</h3>
 <table>
 <tbody><tr><th>Blocks</th><th>Amount</th><th>Total</th></tr>
-<tr><td>1 - 200</td><td>Premine</td><td>2 000 000 CRN</td></tr>
-<tr><td>201 - 598 600</td><td>30 CRN</td><td>17 952 000 CRN</td></tr>
-<tr><td>598 601 - 877 905</td><td>14 CRN</td><td>3 911 000 CRN</td></tr>
-<tr><td>877 906 - 1 390 755</td><td>8 CRN</td><td>4 103 000 CRN</td></tr>
-<tr><td>...until block 1 390 756 where rewards are locked at 2 CRN</td></tr>
+<tr><td>1 - 200</td><td>Premine</td><td>2 000 000 QNT</td></tr>
+<tr><td>201 - 598 600</td><td>30 QNT</td><td>17 952 000 QNT</td></tr>
+<tr><td>598 601 - 877 905</td><td>14 QNT</td><td>3 911 000 QNT</td></tr>
+<tr><td>877 906 - 1 390 755</td><td>8 QNT</td><td>4 103 000 QNT</td></tr>
+<tr><td>...until block 1 390 756 where rewards are locked at 2 QNT</td></tr>
 </tbody></table>
 
-<a href="https://chronoschain.co" title="Chronos Website" target="_blank">View our website for more details</a>
+<a href="https://quantlabchain.co" title="Quantlab Website" target="_blank">View our website for more details</a>

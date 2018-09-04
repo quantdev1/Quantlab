@@ -1,0 +1,26 @@
+[Unit]
+Description=Quantlab's distributed currency daemon
+After=network.target
+
+[Service]
+User=quantlab
+Group=quantlab
+
+Type=forking
+PIDFile=/var/lib/quantlabd/quantlabd.pid
+
+ExecStart=/usr/bin/quantlabd -daemon -pid=/var/lib/quantlabd/quantlabd.pid \
+          -conf=/etc/quantlab/quantlab.conf -datadir=/var/lib/quantlabd
+
+ExecStop=-/usr/bin/quantlab-cli -conf=/etc/quantlab/quantlab.conf \
+         -datadir=/var/lib/quantlabd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

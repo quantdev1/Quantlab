@@ -1,0 +1,26 @@
+# /etc/conf.d/quantlabd: config file for /etc/init.d/quantlabd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/quantlab/quantlab.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/quantlabd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/quantlabd.pid"
+
+# Where to write quantlabd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/quantlabd"
+
+# User and group to own quantlabd process
+#BITCOIND_USER="quantlab"
+#BITCOIND_GROUP="quantlab"
+
+# Path to quantlabd executable
+#BITCOIND_BIN="/usr/bin/quantlabd"
+
+# Nice value to run quantlabd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

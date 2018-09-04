@@ -1,0 +1,11 @@
+[Protocol]
+exec=quantlab-qt '%u'
+protocol=quantlab
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false

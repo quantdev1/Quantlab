@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Quantlab
+Comment=Quantlab P2P Cryptocurrency
+Comment[fr]=Quantlab, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Quantlab, eşten eşe kriptografik sanal para birimi
+Exec=quantlab-qt %u
+Terminal=false
+Type=Application
+Icon=quantlab128
+MimeType=x-scheme-handler/quantlab;
+Categories=Office;Finance;
