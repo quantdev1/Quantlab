@@ -124,7 +124,7 @@ color: #f2f2f2;
 font-weight: bold;
 border:0px solid #0e0e0e;
 border-radius:3px;
-background-color:#331648;
+background-color:#3d3d3d;
 padding-left:0px;
 padding-right:0px;
 font-size: 10px;
@@ -584,14 +584,14 @@ border-radius: 4px;
 }
 
 QSlider::sub-page:horizontal {
-background-color: #331648;
+background-color: #3d3d3d;
 border: 1px solid #5B2882;
 height: 10px;
 border-radius: 4px;
 }
 
 QSlider::add-page:horizontal {
-background-color: #331648;
+background-color: #3d3d3d;
 border: 1px solid #52d400;
 height: 10px;
 border-radius: 4px;
@@ -837,7 +837,7 @@ color:#818181;
 }
 
 QWidget#PrivacyDialog QProgressBar#obfuscationProgress::chunk {
-background-color: #331648;
+background-color: #3d3d3d;
 width:1px;
 }
 
@@ -970,7 +970,7 @@ padding-right:5px;
 /* Header design for ALL tabs/pages *****************************************************/
 /* Horizontal lines */
 QFrame[frameShape="4"] { /* QFrame::HLine == 0x0004 */
-border:1px dotted #331648;
+border:1px dotted #3d3d3d;
 }
 
 /* Headers */
@@ -1453,7 +1453,7 @@ color:#52d400;
 /**************************** SEND COINS ENTRY ******************************************/
 QStackedWidget#SendCoinsEntry {
     border: 0px solid #0e0e0e;
-    border-bottom: 1px dotted #331648;
+    border-bottom: 1px dotted #3d3d3d;
     padding-right: 20px;
     margin: 0;
     background: rgba(128,128,128,0.1);
