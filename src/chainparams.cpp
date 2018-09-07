@@ -149,9 +149,33 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1530742317;
+        genesis.nTime = 1536316952;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 3017405;
+
+        if(genesis.GetHash() != uint256("0x"))
+                {
+                    printf("Searching for genesis block...\n");
+                    uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+                    while(uint256(genesis.GetHash()) > hashTarget)
+                    {
+                        ++genesis.nNonce;
+                        if (genesis.nNonce == 0)
+                        {
+                            printf("NONCE WRAPPED, incrementing time");
+                            std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+                            ++genesis.nTime;
+                        }
+                        if (genesis.nNonce % 10000 == 0)
+                        {
+                            printf("Mainnet: nonce %08u: hash = %s \n", genesis.nNonce, genesis.GetHash().ToString().c_str(), genesis.hashMerkleRoot.ToString().c_str());
+                        }
+                    }
+                    printf("block.nTime = %u \n", genesis.nTime);
+                    printf("block.nNonce = %u \n", genesis.nNonce);
+                    printf("block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+                    printf("block.merklehash = %s\n", genesis.hashMerkleRoot.ToString().c_str());
+                }
 
         hashGenesisBlock = genesis.GetHash();
         assert(genesis.hashMerkleRoot == uint256("0xf79c08a6cb0023b7638597967a4a54b5321cbfa44c35aa99d5db0a660e0710d7"));
@@ -161,9 +185,9 @@ public:
         nZerocoinStartHeight = INT_MAX;
         nZerocoinStartTime = INT_MAX;
 
-        vSeeds.push_back(CDNSSeedData("0", "209.250.247.54"));             // Primary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("1", "45.76.44.153"));      // Secondary DNS Seeder
-        vSeeds.push_back(CDNSSeedData("2", "140.82.35.215"));     // Third DNS Seeder
+        vSeeds.push_back(CDNSSeedData("0", "209.250.243.58"));             // Primary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("1", "217.69.6.155"));      // Secondary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("2", "199.247.0.153"));     // Third DNS Seeder
 
         // https://en.bitcoin.it/wiki/List_of_address_prefixes
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58);     // starts with B
@@ -261,7 +285,7 @@ public:
 
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1536096363;
+        genesis.nTime = 1536316952;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 601665;
 
@@ -333,7 +357,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
 
 
-        genesis.nTime = 1536096363;
+        genesis.nTime = 1536316952;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 233847;
 
