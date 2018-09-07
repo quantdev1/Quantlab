@@ -138,7 +138,7 @@ public:
 
 
 
-        const char* pszTimestamp = "Chronos chain made with love in Europe,America,Asia July 5 2018";
+        const char* pszTimestamp = "QuantLab Made by IntellectSoft Devs September 7 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
