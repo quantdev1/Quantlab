@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("000002d9dc866eb7d3a277dff10dccfc41294fb57adb27a0bd5251c2a47cd4fe"));
+    (0, uint256("00000b98922740df00b3901f57ccd37aacffe301de658ca83c0a5f875ae9a890"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1536096363, // * UNIX timestamp of last checkpoint block
+    1530742317, // * UNIX timestamp of last checkpoint block
     0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -103,10 +103,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xa2;
-        pchMessageStart[1] = 0xb0;
-        pchMessageStart[2] = 0x56;
-        pchMessageStart[3] = 0xc5;
+        pchMessageStart[0] = 0xb7;
+        pchMessageStart[1] = 0xc9;
+        pchMessageStart[2] = 0x65;
+        pchMessageStart[3] = 0x23;
         vAlertPubKey = ParseHex("047ff78a093ca911fbe3c7cd9b8b81976696d92e6ad3d987b00a4cc4841fe9689ed6902be9c6942ef77492d0531bf68cf2e53dc0ac683359f938a7a52a988ced8c");
         nDefaultPort = 23001;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Quantlab starting difficulty is 1 / 2^12
@@ -138,7 +138,7 @@ public:
 
 
 
-        const char* pszTimestamp = "Quantlab September 4 2018";
+        const char* pszTimestamp = "Chronos chain made with love in Europe,America,Asia July 5 2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -149,13 +149,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1536096363;
+        genesis.nTime = 1530742317;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3103448;
+        genesis.nNonce = 3017405;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(genesis.hashMerkleRoot == uint256("0x6c6bf8c59aec5f50bab0437a7312f67bba3355e79c52f173e070cd8dcb21f5cf"));
-        assert(hashGenesisBlock == uint256("0x000002d9dc866eb7d3a277dff10dccfc41294fb57adb27a0bd5251c2a47cd4fe"));
+        assert(genesis.hashMerkleRoot == uint256("0xf79c08a6cb0023b7638597967a4a54b5321cbfa44c35aa99d5db0a660e0710d7"));
+        assert(hashGenesisBlock == uint256("0x00000b98922740df00b3901f57ccd37aacffe301de658ca83c0a5f875ae9a890"));
 
         // Zerocoin, activated never
         nZerocoinStartHeight = INT_MAX;
